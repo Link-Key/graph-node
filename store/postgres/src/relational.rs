@@ -27,6 +27,7 @@ use crate::{
     relational_queries::{
         ClampRangeQuery, ConflictingEntityQuery, EntityData, FilterCollection, FilterQuery,
         FindManyQuery, FindQuery, InsertQuery, RevertClampQuery, RevertRemoveQuery,
+        TableJoinCollection,
     },
 };
 use graph::components::store::EntityType;
@@ -640,6 +641,7 @@ impl Layout {
         }
 
         let filter_collection = FilterCollection::new(&self, collection, filter.as_ref())?;
+
         let query = FilterQuery::new(
             &filter_collection,
             filter.as_ref(),
